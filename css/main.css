@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Special Elite";
+  src: url("../fonts/SpecialElite-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Josefin Slab";
+  src: url("../fonts/JosefinSlab-Bold.ttf");
+}
+
+:root {
+  --degree: 45deg;
+  --p1: 0%;
+  --p2: 7%;
+  --p3: 9%;
+  --p4: 11%;
+  --p5: 26%;
+  --p6: 34%;
+  --p7: 41%;
+  --p8: 100%;
+}
+
+html, body, .wrapper {
+  height: 100%;
+  margin: 0;
+  font-family: 'Special Elite', cursive;
+}
+
+.wrapper {
+  display: grid;
+  overflow: auto;
+  grid-template-columns: 1.8fr 1fr;
+  grid-template-rows: 1fr 0.8fr;
+  grid-template-areas: "none photo" "header contact";
+  background: linear-gradient(var(--degree),
+    rgb(64, 140, 190) var(--p1),
+    rgb(64, 140, 190) var(--p2),
+    rgb(62, 107, 145) var(--p2),
+    rgb(62, 107, 145) var(--p3),
+    rgb(49, 99, 131) var(--p3),
+    rgb(49, 99, 131) var(--p4),
+    rgb(116, 172, 211) var(--p4),
+    rgb(116, 172, 211) var(--p5),
+    rgb(125, 182, 214) var(--p5),
+    rgb(125, 182, 214) var(--p6),
+    rgb(40, 90, 136) var(--p6),
+    rgb(40, 90, 136) var(--p7),
+    rgb(39, 123, 190) var(--p7),
+    rgb(39, 123, 190) var(--p8)
+  );
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.header__h1 {
+  font-family: 'Josefin Slab', serif;
+  font-size: 14rem;
+  margin: 0 0 0 6.5rem;
+  line-height: 8vw;
+}
+
+.header__name {
+  color: #f0f0ff;
+}
+
+.photo {
+  grid-area: photo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.photo__img {
+  max-width: 400px;
+  width: 100%;
+  object-fit: contain;
+  box-shadow: 3px 3px 5px 9px #002a4c
+}
+
+.contact {
+  grid-area: contact;
+  font-size: 2rem;
+  word-wrap: break-word;
+}
+
+.mail {
+  word-break: break-all;
+}
+
+.contact-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.info {
+  display: contents;
+}
+
+[class$="__link"] {
+  color: black;
+}
+
+@media screen and (max-width: 1400px) {
+  .header__h1 {
+    font-size: 15vw;
+    margin: 0 0 0 6.5vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    grid-template-areas: "header photo" "contact contact";
+  }
+  .contact {
+    margin: 0 0 0 6.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "header" "photo" "contact";
+  }
+  .photo__img {
+    margin: 0 0 0 6.5vw;
+  }
+  .header {
+    padding: 6.5vw 0;
+  }
+}
